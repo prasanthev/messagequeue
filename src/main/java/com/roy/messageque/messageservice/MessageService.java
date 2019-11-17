@@ -3,13 +3,14 @@ package com.roy.messageque.messageservice;
 import com.roy.messageque.consumer.MessageReceiver;
 import com.roy.messageque.source.MessageSenderA;
 import com.roy.messageque.source.MessageSenderB;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-import java.util.logging.Logger;
 
 public class MessageService {
-    private static final Logger LOGGER = Logger.getLogger(MessageService.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageService.class);
 
     public static void main(String[] args) {
         BlockingQueue queue = new LinkedBlockingQueue();
