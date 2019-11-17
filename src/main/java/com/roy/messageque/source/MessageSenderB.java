@@ -1,13 +1,17 @@
 package com.roy.messageque.source;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.concurrent.BlockingQueue;
-import java.util.logging.Logger;
 
 public class MessageSenderB implements Runnable {
     private BlockingQueue queue;
-    private static final Logger LOGGER = Logger.getLogger(MessageSenderB.class.getName());
+    private static final Logger LOGGER = LoggerFactory.getLogger(MessageSenderB.class);
 
-    public MessageSenderB(BlockingQueue queue) { this.queue = queue; }
+    public MessageSenderB(BlockingQueue queue) {
+        this.queue = queue;
+    }
 
     @Override
     public void run() {
@@ -17,7 +21,7 @@ public class MessageSenderB implements Runnable {
                 queue.put("This is from Source B message " + i);
             }
         } catch (InterruptedException e) {
-            LOGGER.severe(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 }
